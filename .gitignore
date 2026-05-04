@@ -3,6 +3,14 @@ dist
 coverage
 .nyc_output
 complexity
+ci-data
+test-results.json
+test-step-duration-ms.txt
+base-coverage-summary.json
+base-test-results.json
+base-test-step-duration-ms.txt
+base-cognitive-complexity-summary.json
+changed-files.txt
 *.tsbuildinfo
 *.tgz
 .env

@@ -4,6 +4,8 @@ import path from 'node:path';
 const repoRoot = process.cwd();
 const markdownFiles = [
   'README.md',
+  'packages/drizzle/README.md',
+  ...collectMarkdownFiles('docs'),
 ];
 const markdownLinkPattern = /\[[^\]]+\]\(([^)]+)\)/g;
 const failures = [];
@@ -48,4 +50,19 @@ function shouldSkipTarget(rawTarget) {
     rawTarget.startsWith('mailto:') ||
     rawTarget.startsWith('#')
   );
+}
+
+function collectMarkdownFiles(directory) {
+  const absoluteDirectory = path.join(repoRoot, directory);
+  if (!fs.existsSync(absoluteDirectory)) {
+    return [];
+  }
+
+  return fs.readdirSync(absoluteDirectory, { withFileTypes: true }).flatMap(entry => {
+    const relativePath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      return collectMarkdownFiles(relativePath);
+    }
+    return entry.isFile() && entry.name.endsWith('.md') ? [relativePath] : [];
+  });
 }

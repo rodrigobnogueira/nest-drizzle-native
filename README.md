@@ -1,31 +1,102 @@
 # nest-drizzle-native
 
-Nest-native Drizzle ORM integration for applications that want NestJS dependency
-injection, repository structure, and transaction decorators without hiding
-Drizzle's SQL-first query builder.
+<p align="center">Nest-native Drizzle ORM integration with dependency injection, repositories, and transaction decorators.</p>
 
-This repository is in its first implementation phase. The current package
-provides the core module API, injection decorators, repository registration,
-transaction decorator bridges, testing helpers, quality gates, and release
-checks. Driver-specific samples, Swagger generation helpers, and full transaction
-showcases are intentionally next.
+<p align="center">
+  <a href="https://www.npmjs.com/package/nest-drizzle-native"><img src="https://img.shields.io/npm/v/nest-drizzle-native.svg" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/package/nest-drizzle-native"><img src="https://img.shields.io/npm/dm/nest-drizzle-native.svg" alt="NPM Downloads" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Package License" /></a>
+  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" />
+  <a href="docs/introduction.md"><img src="https://img.shields.io/badge/docs-nest--drizzle--native-0f766e.svg" alt="Documentation" /></a>
+</p>
 
-## Install
+## What This Is
+
+`nest-drizzle-native` is a community NestJS integration for applications that
+want Drizzle ORM with Nest-style modules, dependency injection, repository
+classes, lifecycle cleanup, and transaction decorators without hiding Drizzle's
+SQL-first query builder.
+
+The documentation is the canonical source of truth for usage guides and support
+policy:
+
+- [Introduction](docs/introduction.md)
+- [Quick Start](docs/quick-start.md)
+- [Repositories](docs/repositories.md)
+- [Transactions](docs/transactions.md)
+- [Testing](docs/testing.md)
+- [API Reference](docs/api-reference.md)
+- [Quality and CI](docs/quality-and-ci.md)
+- [Support Policy](docs/support-policy.md)
+
+## Why Use It
+
+`nest-drizzle-native` keeps Drizzle explicit while giving Nest applications a
+native integration surface:
+
+- Module setup via `DrizzleModule.forRoot()` and `DrizzleModule.forRootAsync()`
+- Direct client injection through `@InjectDrizzle()`
+- Repository classes with `@DrizzleRepository()` and `DrizzleModule.forFeature()`
+- Named connections for multi-database applications
+- Shutdown hooks for drivers owned by the Nest module
+- Transaction decorator bridges for `@nestjs-cls/transactional`
+- Testing helpers for isolated modules and repository mocks
+
+## Compatibility
+
+| Runtime | Supported line |
+| --- | --- |
+| Node.js | `>=20` |
+| NestJS | `11.x` |
+| Drizzle ORM | `>=0.30.0 <2.0.0` |
+| Transaction bridge | `@nestjs-cls/transactional`, optional |
+| Drivers | Bring the Drizzle driver your app uses |
+
+For peer dependency policy and API stability, see
+[docs/support-policy.md](docs/support-policy.md).
+
+## Repository Layout
+
+This repository contains:
+
+- `packages/drizzle`: the `nest-drizzle-native` integration package
+- `docs`: documentation for setup, APIs, testing, quality gates, and support
+- `scripts`: release, quality, coverage, and report-generation helpers
+
+Samples are planned after the first package baseline is merged. The current
+test suite already includes real libSQL integration and real CLS transaction
+coverage.
+
+## Installation
 
 ```bash
-npm install nest-drizzle-native drizzle-orm @nestjs/common @nestjs/core reflect-metadata rxjs
+npm i nest-drizzle-native drizzle-orm
 ```
 
-Install the Drizzle driver your app actually uses, such as `pg`, `mysql2`,
-`better-sqlite3`, or `@libsql/client`.
+Required peers:
 
-For `@Transactional()` support, install and configure
-`@nestjs-cls/transactional` in your application.
+```bash
+npm i @nestjs/common @nestjs/core reflect-metadata rxjs
+```
+
+Install the Drizzle driver your app actually uses:
+
+```bash
+npm i pg
+# or mysql2, better-sqlite3, @libsql/client, etc.
+```
+
+For `@Transactional()` and `@InjectTransaction()`, install and configure the CLS
+transaction stack:
+
+```bash
+npm i @nestjs-cls/transactional
+```
 
 ## Quick Start
 
-Define schemas with standard Drizzle syntax. `nest-drizzle-native` receives the
-schema object as-is and does not introduce class entities.
+Define schemas with standard Drizzle syntax. The library receives the schema
+object as-is and does not introduce class entities.
 
 ```ts
 import { Module } from '@nestjs/common';
@@ -71,7 +142,8 @@ export class UsersService {
 }
 ```
 
-Use repositories as structured homes for queries while keeping Drizzle explicit.
+Use repositories as structured homes for query code while keeping Drizzle
+explicit.
 
 ```ts
 import { Module } from '@nestjs/common';
@@ -137,14 +209,14 @@ constructor(@InjectDrizzle('analytics') private readonly analytics: AnalyticsDb)
 
 Root connections are global by default so feature modules can register
 repositories with `DrizzleModule.forFeature()`. Set `isGlobal: false` when you
-want to keep a connection scoped to a single module boundary.
+want to keep a connection scoped to one module boundary.
 
 ## Transactions
 
-`@Transactional()` and `@InjectTransaction()` are intentionally bridged to
+`@Transactional()` and `@InjectTransaction()` are bridged to
 `@nestjs-cls/transactional`. This keeps transaction context management on the
-well-tested CLS transaction stack instead of introducing a second AsyncLocalStorage
-implementation.
+well-tested CLS transaction stack instead of introducing a second
+AsyncLocalStorage implementation.
 
 ```ts
 import { Injectable } from '@nestjs/common';
@@ -159,6 +231,8 @@ export class BillingService {
   }
 }
 ```
+
+See [docs/transactions.md](docs/transactions.md) for the required CLS setup.
 
 ## Testing
 
@@ -182,17 +256,21 @@ const module = await Test.createTestingModule({
 }).compile();
 ```
 
+Prefer real Drizzle clients for integration tests that prove SQL behavior,
+transactions, migrations, or driver-specific assumptions. See
+[docs/testing.md](docs/testing.md).
+
 ## Quality Gates
 
-The repository starts with the same quality posture as `nest-trpc-native`:
+The repository starts with the same review posture as `nest-trpc-native` while
+using `node:test` and `c8` for this package:
 
 - package build and typecheck on Node.js 20 and 22
-- coverage with `c8`
+- coverage with `c8`, enforced at 100% for statements, branches, functions, and lines
+- sticky PR comments for coverage, test performance, and cognitive complexity
 - cognitive complexity enforcement with SonarJS threshold `15`
-- cognitive complexity JSON reports
 - package tarball validation
 - supply-chain audit for high-severity issues
-- GitHub Actions summaries for coverage and test-step duration
 
 Run the local gate with:
 
