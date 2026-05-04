@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -42,12 +43,31 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Restore base branch CI data
+        if: github.event_name == 'pull_request'
+        id: base-ci-data
+        uses: actions/cache/restore@v5
+        with:
+          path: ci-data
+          key: ci-data-node-22-${{ github.base_ref }}-
+          restore-keys: ci-data-node-22-${{ github.base_ref }}-
+
+      - name: Extract base CI data
+        if: steps.base-ci-data.outputs.cache-matched-key
+        run: |
+          cp ci-data/coverage-summary.json base-coverage-summary.json 2>/dev/null || true
+          cp ci-data/test-results.json base-test-results.json 2>/dev/null || true
+          cp ci-data/test-step-duration-ms.txt base-test-step-duration-ms.txt 2>/dev/null || true
+          cp ci-data/cognitive-complexity-summary.json base-cognitive-complexity-summary.json 2>/dev/null || true
 
       - name: Run tests with coverage
         run: |
@@ -60,6 +80,51 @@ jobs:
 
       - name: Generate cognitive complexity report
         run: npm run complexity:report
+
+      - name: Cache CI data for base branch
+        if: github.event_name == 'push'
+        run: |
+          mkdir -p ci-data
+          cp coverage/coverage-summary.json ci-data/coverage-summary.json
+          cp test-results.json ci-data/test-results.json
+          cp test-step-duration-ms.txt ci-data/test-step-duration-ms.txt
+          cp complexity/cognitive-complexity-summary.json ci-data/cognitive-complexity-summary.json
+
+      - if: github.event_name == 'push'
+        uses: actions/cache/save@v5
+        with:
+          path: ci-data
+          key: ci-data-node-22-${{ github.ref_name }}-${{ github.sha }}
+
+      - name: Get changed files
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'packages/**/*.ts' | tee changed-files.txt
+
+      - name: Coverage Report
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const report = require('./.github/scripts/coverage-report.js');
+            await report({ github, context, core });
+
+      - name: Performance Report
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const report = require('./.github/scripts/performance-report.js');
+            await report({ github, context, core });
+
+      - name: Complexity Report
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const report = require('./.github/scripts/complexity-report.js');
+            await report({ github, context, core });
 
       - name: Coverage and performance summary
         run: |
@@ -95,6 +160,7 @@ jobs:
             coverage/coverage-summary.json
             coverage/lcov.info
             complexity/cognitive-complexity-summary.json
+            test-results.json
             test-step-duration-ms.txt
           if-no-files-found: error
 
