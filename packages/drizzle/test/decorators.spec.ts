@@ -70,11 +70,27 @@ describe('decorators and tokens', () => {
     );
   });
 
-  it('fails loudly when @Transactional is used without its CLS peer', () => {
-    assert.throws(
-      () => Transactional(),
-      '@nestjs-cls/transactional',
-    );
+  it('fails loudly when @Transactional cannot load its CLS peer', () => {
+    const originalLoad = (Module as any)._load;
+
+    (Module as any)._load = (request: string, ...args: unknown[]) => {
+      if (request === '@nestjs-cls/transactional') {
+        const error = new Error('missing package');
+        (error as { code?: string }).code = 'MODULE_NOT_FOUND';
+        throw error;
+      }
+
+      return originalLoad(request, ...args);
+    };
+
+    try {
+      assert.throws(
+        () => Transactional(),
+        '@nestjs-cls/transactional',
+      );
+    } finally {
+      (Module as any)._load = originalLoad;
+    }
   });
 
   it('delegates @Transactional to the CLS package when present', () => {
@@ -127,12 +143,28 @@ describe('decorators and tokens', () => {
     }
   });
 
-  it('falls back to the local transaction token when CLS injection is absent', () => {
-    class TransactionConsumer {
-      constructor(@InjectTransaction('analytics') readonly tx: unknown) {}
-    }
+  it('falls back to the local transaction token when CLS injection cannot load', () => {
+    const originalLoad = (Module as any)._load;
 
-    assert.equal(typeof TransactionConsumer, 'function');
+    (Module as any)._load = (request: string, ...args: unknown[]) => {
+      if (request === '@nestjs-cls/transactional') {
+        const error = new Error('missing package');
+        (error as { code?: string }).code = 'MODULE_NOT_FOUND';
+        throw error;
+      }
+
+      return originalLoad(request, ...args);
+    };
+
+    try {
+      class TransactionConsumer {
+        constructor(@InjectTransaction('analytics') readonly tx: unknown) {}
+      }
+
+      assert.equal(typeof TransactionConsumer, 'function');
+    } finally {
+      (Module as any)._load = originalLoad;
+    }
   });
 
   it('delegates @InjectTransaction to the CLS package when present', () => {
