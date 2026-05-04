@@ -32,7 +32,7 @@ child.stderr.on('data', chunk => {
 });
 
 child.on('close', code => {
-  const results = parseSpecOutput(stdout);
+  const results = parseTestOutput(stdout);
 
   if (results.stats.tests === 0 && stderr.trim()) {
     results.failures.push({
@@ -49,7 +49,7 @@ child.on('close', code => {
   process.exitCode = code ?? 1;
 });
 
-function parseSpecOutput(output) {
+function parseTestOutput(output) {
   const passes = [];
   const failures = [];
   const pending = [];
@@ -65,6 +65,7 @@ function parseSpecOutput(output) {
     duration: 0,
   };
   let currentSuite = 'node:test';
+  let lastTimedEntry;
 
   for (const line of output.split(/\r?\n/)) {
     const suiteStart = line.match(/^\s*▶\s+(.+)$/u);
@@ -73,7 +74,13 @@ function parseSpecOutput(output) {
       continue;
     }
 
-    const info = line.match(/^\s*ℹ\s+(tests|suites|pass|fail|cancelled|skipped|todo|duration_ms)\s+([\d.]+)$/u);
+    const tapSuiteStart = line.match(/^(\s*)#\s+Subtest:\s+(.+)$/u);
+    if (tapSuiteStart && tapSuiteStart[1].length === 0) {
+      currentSuite = tapSuiteStart[2].trim();
+      continue;
+    }
+
+    const info = line.match(/^\s*(?:ℹ|#)\s+(tests|suites|pass|fail|cancelled|skipped|todo|duration_ms)\s+([\d.]+)$/u);
     if (info) {
       applyInfo(stats, info[1], Number(info[2]));
       continue;
@@ -91,6 +98,7 @@ function parseSpecOutput(output) {
           duration,
           testCount: suiteTestCounts.get(name) ?? 0,
         });
+        lastTimedEntry = suites.at(-1);
         currentSuite = name;
         continue;
       }
@@ -102,7 +110,43 @@ function parseSpecOutput(output) {
         duration,
         file: currentSuite,
       });
+      lastTimedEntry = target.at(-1);
       suiteTestCounts.set(currentSuite, (suiteTestCounts.get(currentSuite) ?? 0) + 1);
+      continue;
+    }
+
+    const tapResult = line.match(/^(\s*)(ok|not ok)\s+\d+\s+-\s+(.+)$/u);
+    if (tapResult) {
+      const [, indent, marker, rawName] = tapResult;
+      const name = stripTapDirective(rawName);
+
+      if (indent.length === 0) {
+        suites.push({
+          name,
+          file: name,
+          duration: 0,
+          testCount: suiteTestCounts.get(name) ?? 0,
+        });
+        lastTimedEntry = suites.at(-1);
+        currentSuite = name;
+        continue;
+      }
+
+      const target = marker === 'ok' ? passes : failures;
+      target.push({
+        title: name,
+        fullTitle: currentSuite ? `${currentSuite} ${name}` : name,
+        duration: 0,
+        file: currentSuite,
+      });
+      lastTimedEntry = target.at(-1);
+      suiteTestCounts.set(currentSuite, (suiteTestCounts.get(currentSuite) ?? 0) + 1);
+      continue;
+    }
+
+    const tapDuration = line.match(/^\s*duration_ms:\s*([\d.]+)$/u);
+    if (tapDuration && lastTimedEntry) {
+      lastTimedEntry.duration = Math.round(Number(tapDuration[1]));
       continue;
     }
 
@@ -170,4 +214,8 @@ function toMilliseconds(value, unit) {
     return Math.round(value / 1000);
   }
   return Math.round(value);
+}
+
+function stripTapDirective(value) {
+  return value.replace(/\s+#\s+(?:SKIP|TODO).*/u, '').trim();
 }
