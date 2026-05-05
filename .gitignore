@@ -1,4 +1,6 @@
 node_modules
+website/.docusaurus
+website/build
 dist
 coverage
 .nyc_output

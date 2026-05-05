@@ -6,6 +6,7 @@ const markdownFiles = [
   'README.md',
   'packages/drizzle/README.md',
   ...collectMarkdownFiles('docs'),
+  ...collectMarkdownFiles('website/docs'),
 ];
 const markdownLinkPattern = /\[[^\]]+\]\(([^)]+)\)/g;
 const failures = [];
