@@ -36,3 +36,23 @@ npm run test --workspace nest-drizzle-native-sample-01-basic-client
 Sample PRs must not include package source changes under `packages/drizzle/**`.
 If a sample exposes a package bug, pause the sample branch and fix the package in
 a separate PR first.
+
+After each sample implementation, do a short follow-up review before opening or
+updating the PR:
+
+- **Library ergonomics**: Did the sample reveal an awkward API, missing helper,
+  confusing type, or repetitive setup that belongs in `packages/drizzle`?
+- **Architecture**: Did the sample need a pattern that should become the
+  recommended Nest-native structure for modules, repositories, transactions, or
+  testing?
+- **Documentation**: Did the sample teach something that should be promoted to
+  the README, Docusaurus docs, or API reference?
+- **Performance**: Did the sample reveal unnecessary connection work, slow test
+  setup, excessive boot cost, or query patterns that need guidance?
+- **Maintainability**: Did the sample duplicate code that should become a shared
+  sample helper, documented convention, or future library improvement?
+
+Keep those follow-ups out of the sample PR unless they are documentation-only
+changes that directly explain the sample. For library code, architectural
+refactors, performance work, or package behavior changes, open a separate issue
+or PR and reference it from the sample PR.
