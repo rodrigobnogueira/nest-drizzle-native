@@ -12,7 +12,8 @@ module.exports = async ({ github, context }) => {
     ? parseInt(fs.readFileSync('base-test-step-duration-ms.txt', 'utf8').trim(), 10)
     : null;
 
-  const fmtDuration = ms => (ms >= 1000 ? `**${(ms / 1000).toFixed(2)}s**` : `${ms}ms`);
+  const fmtMilliseconds = ms => `${Math.round(ms)}ms`;
+  const fmtDuration = ms => (ms >= 1000 ? `**${(ms / 1000).toFixed(2)}s**` : fmtMilliseconds(ms));
   const fmtDiff = (currentMs, baseMs) => {
     if (baseMs == null) {
       return '-';
@@ -25,7 +26,7 @@ module.exports = async ({ github, context }) => {
     const icon = diffMs > 0 ? '🔴' : '🟢';
     return Math.abs(diffMs) >= 1000
       ? `${icon} ${sign}${(diffMs / 1000).toFixed(2)}s`
-      : `${icon} ${sign}${diffMs}ms`;
+      : `${icon} ${sign}${fmtMilliseconds(diffMs)}`;
   };
   const suiteKey = value => value.split('/').slice(-3).join('/');
   const escapeCell = value => String(value).replace(/\|/g, '\\|');
