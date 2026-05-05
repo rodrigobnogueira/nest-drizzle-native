@@ -27,6 +27,7 @@ policy:
 - [Testing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/testing)
 - [API Reference](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/api-reference)
 - [Quality and CI](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quality-and-ci)
+- [Contributing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/contributing)
 - [Support Policy](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/support-policy)
 
 ## Why Use It
@@ -62,6 +63,7 @@ This repository contains:
 - `packages/drizzle`: the `nest-drizzle-native` integration package
 - `website/docs`: Docusaurus documentation for setup, APIs, testing, quality gates, and support
 - `scripts`: release, quality, coverage, and report-generation helpers
+- `CONTRIBUTING.md`: contributor workflow, including sample/library PR separation
 
 Samples are planned after the first package baseline is merged. The current
 test suite already includes real libSQL integration and real CLS transaction

@@ -9,5 +9,6 @@ Start here:
 - [Testing](testing.md)
 - [API Reference](api-reference.md)
 - [Quality And CI](quality-and-ci.md)
+- [Contributing](contributing.md)
 - [Support Policy](support-policy.md)
 - [Roadmap](roadmap.md)
