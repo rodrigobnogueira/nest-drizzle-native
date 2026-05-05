@@ -182,3 +182,19 @@ jobs:
 
       - name: Audit production supply chain
         run: npm run security:audit
+
+  docs-site:
+    name: Docusaurus build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Install docs website dependencies
+        run: npm --prefix website ci
+
+      - name: Build docs site
+        run: npm --prefix website run build

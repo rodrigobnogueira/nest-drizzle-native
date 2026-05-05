@@ -20,8 +20,11 @@
     "release:check:readme-links": "node scripts/check-readme-links.mjs",
     "release:check:pack": "npm run build --workspace nest-drizzle-native && node scripts/check-package-pack.mjs",
     "release:check": "npm run release:check:readme-links && npm run release:check:pack",
-    "security:audit": "npm audit --audit-level=high",
-    "ci": "npm run typecheck && npm run test:cov && npm run complexity:check && npm run complexity:report && npm run release:check && npm run security:audit"
+    "ci:docs": "npm --prefix website ci && npm --prefix website run build",
+    "security:audit:package": "npm audit --audit-level=high",
+    "security:audit:docs": "npm --prefix website audit --audit-level=high",
+    "security:audit": "npm run security:audit:package && npm run security:audit:docs",
+    "ci": "npm run typecheck && npm run test:cov && npm run complexity:check && npm run complexity:report && npm run release:check && npm run ci:docs && npm run security:audit"
   },
   "engines": {
     "node": ">=20"
