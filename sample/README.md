@@ -12,6 +12,7 @@ npm run ci:sample
 npm run sample:focused
 npm run test --workspace nest-drizzle-native-sample-01-basic-client
 npm run test --workspace nest-drizzle-native-sample-02-repositories
+npm run test --workspace nest-drizzle-native-sample-03-for-root-async
 ```
 
 ## Catalog
@@ -21,7 +22,7 @@ npm run test --workspace nest-drizzle-native-sample-02-repositories
 | `00-showcase` | Full integration baseline | Planned in issue #7 | `npm run showcase` |
 | `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
 | `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
-| `03-for-root-async` | Async configuration and shutdown | Planned in issue #4 | TBD |
+| `03-for-root-async` | Async configuration and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-03-for-root-async` |
 | `04-named-connections` | Multiple Drizzle clients | Planned in issue #9 | TBD |
 | `05-transactions-cls` | CLS-backed `@Transactional()` | Planned in issue #11 | TBD |
 | `06-manual-transaction` | `@InjectTransaction()` escape hatch | Planned in issue #8 | TBD |
@@ -57,3 +58,13 @@ Keep those follow-ups out of the sample PR unless they are documentation-only
 changes that directly explain the sample. For library code, architectural
 refactors, performance work, or package behavior changes, open a separate issue
 or PR and reference it from the sample PR.
+
+## Local Database Convention
+
+Focused samples use local libSQL database files so they run in CI without
+external services. That setup is intentionally sample-local: it demonstrates
+driver construction and cleanup without adding test-only helpers to the
+published package API.
+
+If more samples repeat the same setup, prefer shared guidance or helper code
+inside `sample/` over changes in `packages/drizzle`.
