@@ -137,3 +137,5 @@ DrizzleModule.forRootAsync({
 - Use [Repositories](repositories.md) to structure query code.
 - Use [Transactions](transactions.md) for CLS-backed transactions.
 - Use [Testing](testing.md) for unit and integration test patterns.
+- Use [Samples](samples/index.md) for runnable examples of each feature in
+  isolation.

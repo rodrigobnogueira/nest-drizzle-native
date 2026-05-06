@@ -7,6 +7,7 @@ Start here:
 - [Repositories](repositories.md)
 - [Transactions](transactions.md)
 - [Testing](testing.md)
+- [Samples](samples/index.md)
 - [API Reference](api-reference.md)
 - [Quality And CI](quality-and-ci.md)
 - [Contributing](contributing.md)

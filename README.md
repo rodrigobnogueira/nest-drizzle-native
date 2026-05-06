@@ -25,6 +25,7 @@ policy:
 - [Repositories](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/repositories)
 - [Transactions](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/transactions)
 - [Testing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/testing)
+- [Samples](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/)
 - [API Reference](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/api-reference)
 - [Quality and CI](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quality-and-ci)
 - [Contributing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/contributing)
@@ -61,13 +62,14 @@ For peer dependency policy and API stability, see
 This repository contains:
 
 - `packages/drizzle`: the `nest-drizzle-native` integration package
-- `website/docs`: Docusaurus documentation for setup, APIs, testing, quality gates, and support
+- `website/docs`: Docusaurus documentation for setup, APIs, samples, testing, quality gates, and support
+- `sample`: focused runnable examples for each supported feature
 - `scripts`: release, quality, coverage, and report-generation helpers
 - `CONTRIBUTING.md`: contributor workflow, including sample/library PR separation
 
-Samples are planned after the first package baseline is merged. The current
-test suite already includes real libSQL integration and real CLS transaction
-coverage.
+Samples are part of the public learning path. The current set includes direct
+client injection, repositories, async configuration, named connections, and
+transaction patterns.
 
 ## Installation
 

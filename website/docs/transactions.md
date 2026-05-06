@@ -82,7 +82,8 @@ Rollback behavior is owned by the configured CLS transaction adapter. In the
 package integration tests, a thrown error inside a `@Transactional()` method
 rolls back the real libSQL Drizzle transaction, and a successful method commits.
 
-See `sample/05-transactions-cls` for the standard service-level pattern.
+See the [CLS transaction sample](samples/catalog.md) for the standard
+service-level pattern.
 
 ## Direct Transaction Injection
 
@@ -104,7 +105,8 @@ export class InventoryRepository {
 ```
 
 The service should still own the method-level `@Transactional()` boundary. See
-`sample/06-manual-transaction` for a runnable commit and rollback example.
+the [manual transaction sample](samples/catalog.md) for a runnable commit and
+rollback example.
 
 ## Testing Transactions
 

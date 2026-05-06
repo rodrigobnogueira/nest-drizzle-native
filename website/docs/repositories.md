@@ -28,6 +28,9 @@ Register repositories with `DrizzleModule.forFeature()`.
 export class UsersDataModule {}
 ```
 
+For a runnable version of this pattern, see the
+[repository sample](samples/catalog.md).
+
 ## Direct Client Injection
 
 Use `@InjectDrizzle()` when a service naturally owns the query code.
