@@ -13,6 +13,7 @@ npm run sample:focused
 npm run test --workspace nest-drizzle-native-sample-01-basic-client
 npm run test --workspace nest-drizzle-native-sample-02-repositories
 npm run test --workspace nest-drizzle-native-sample-03-for-root-async
+npm run test --workspace nest-drizzle-native-sample-04-named-connections
 ```
 
 ## Catalog
@@ -23,7 +24,7 @@ npm run test --workspace nest-drizzle-native-sample-03-for-root-async
 | `01-basic-client-injection` | Direct `@InjectDrizzle()` client injection | Runnable | `npm run test --workspace nest-drizzle-native-sample-01-basic-client` |
 | `02-repositories` | `@DrizzleRepository()` and `forFeature()` | Runnable | `npm run test --workspace nest-drizzle-native-sample-02-repositories` |
 | `03-for-root-async` | Async configuration and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-03-for-root-async` |
-| `04-named-connections` | Multiple Drizzle clients | Planned in issue #9 | TBD |
+| `04-named-connections` | Multiple Drizzle clients | Runnable | `npm run test --workspace nest-drizzle-native-sample-04-named-connections` |
 | `05-transactions-cls` | CLS-backed `@Transactional()` | Planned in issue #11 | TBD |
 | `06-manual-transaction` | `@InjectTransaction()` escape hatch | Planned in issue #8 | TBD |
 | `07-validation-drizzle-zod` | Drizzle schema to Zod validation | Planned in issue #10 | TBD |
