@@ -61,6 +61,10 @@ The package test suite includes a real libSQL integration test that creates a
 table, writes rows through a repository, and verifies CLS-backed transaction
 commit and rollback.
 
+The focused [samples](samples/catalog.md) use the same philosophy: run real
+Nest modules against local database files when behavior depends on Drizzle,
+drivers, or transactions.
+
 ## Local Commands
 
 ```bash

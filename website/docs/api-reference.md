@@ -63,7 +63,7 @@ Re-exports the transaction decorator from the CLS transaction stack.
 
 ### `@InjectTransaction(connectionName?)`
 
-Injects the active transaction host from the CLS transaction stack.
+Injects the active transaction object from the CLS transaction stack.
 
 ## Testing
 

@@ -9,6 +9,17 @@ const sidebars: SidebarsConfig = {
     'testing',
     {
       type: 'category',
+      label: 'Samples',
+      items: [
+        'samples/index',
+        'samples/catalog',
+        'samples/architecture',
+        'samples/superpowers',
+        'samples/how-to-review',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Support & Reference',
       items: [
         'support-policy',
