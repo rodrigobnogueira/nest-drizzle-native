@@ -22,10 +22,10 @@ npm run sample:focused
 | [`09-error-mapping`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping) | Opt-in database error mapping | `npm run test --workspace nest-drizzle-native-sample-09-error-mapping` |
 | [`10-testing-utilities`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities) | Test module and mock helpers | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
 | [`11-raw-sql-escape-hatch`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch) | Safe raw SQL patterns | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
+| [`12-swagger-openapi`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi) | Swagger/OpenAPI integration | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
 
 ## Planned
 
 | Sample | Focus | Issue |
 | --- | --- | --- |
 | `00-showcase` | Full integration baseline | [#7](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/7) |
-| `12-swagger-openapi` | Swagger/OpenAPI integration | [#12](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/12) |
