@@ -21,11 +21,11 @@ npm run sample:focused
 | [`08-validation-class-validator`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator) | DTO validation with `ValidationPipe` | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
 | [`09-error-mapping`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping) | Opt-in database error mapping | `npm run test --workspace nest-drizzle-native-sample-09-error-mapping` |
 | [`10-testing-utilities`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities) | Test module and mock helpers | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
+| [`11-raw-sql-escape-hatch`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch) | Safe raw SQL patterns | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 
 ## Planned
 
 | Sample | Focus | Issue |
 | --- | --- | --- |
 | `00-showcase` | Full integration baseline | [#7](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/7) |
-| `11-raw-sql-escape-hatch` | Safe raw SQL patterns | [#13](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/13) |
 | `12-swagger-openapi` | Swagger/OpenAPI integration | [#12](https://github.com/rodrigobnogueira/nest-drizzle-native/issues/12) |
