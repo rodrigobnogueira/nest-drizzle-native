@@ -83,8 +83,18 @@ Inspect:
 - [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
 - [`08-validation-class-validator/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
 
+## Opt-In Error Mapping
+
+`mapDrizzleError()` lets applications translate known database constraint
+failures into Nest exceptions where persistence meets application semantics.
+
+Inspect:
+
+- [`09-error-mapping/src/members/members.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/src/members/members.repository.ts)
+- [`09-error-mapping/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/09-error-mapping/scripts/smoke.ts)
+
 ## Still Planned
 
-The sample plan also includes database error mapping, testing utilities, safe
-raw SQL patterns, Swagger/OpenAPI integration, and the full showcase. Those
-pages should stay honest until the runnable samples land.
+The sample plan also includes testing utilities, safe raw SQL patterns,
+Swagger/OpenAPI integration, and the full showcase. Those pages should stay
+honest until the runnable samples land.
