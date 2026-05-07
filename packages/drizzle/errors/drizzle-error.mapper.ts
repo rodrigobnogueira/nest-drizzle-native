@@ -63,13 +63,16 @@ function collectErrorCodes(error: unknown): string[] {
   }
 
   const maybeError = error as Record<string, unknown>;
-  return [
+  const currentCodes = [
     maybeError.code,
     maybeError.errno,
-    maybeError.cause && typeof maybeError.cause === 'object'
-      ? (maybeError.cause as Record<string, unknown>).code
-      : undefined,
+    maybeError.extendedCode,
   ]
     .filter((code): code is string | number => typeof code === 'string' || typeof code === 'number')
     .map(code => String(code));
+
+  return [
+    ...currentCodes,
+    ...collectErrorCodes(maybeError.cause),
+  ];
 }
