@@ -83,6 +83,16 @@ Inspect:
 - [`08-validation-class-validator/src/customers/create-customer.dto.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/customers/create-customer.dto.ts)
 - [`08-validation-class-validator/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/08-validation-class-validator/src/app.module.ts)
 
+## OpenAPI Contracts
+
+`@nestjs/swagger` can document DTO-backed controllers while repositories keep
+Drizzle persistence explicit and type-safe behind the HTTP boundary.
+
+Inspect:
+
+- [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
+- [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
+
 ## Opt-In Error Mapping
 
 `mapDrizzleError()` lets applications translate known database constraint
@@ -116,5 +126,5 @@ Inspect:
 
 ## Still Planned
 
-The sample plan also includes Swagger/OpenAPI integration and the full showcase.
-Those pages should stay honest until the runnable samples land.
+The sample plan also includes the full showcase. Those pages should stay honest
+until the runnable samples land.
