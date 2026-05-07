@@ -18,6 +18,7 @@ npm run test --workspace nest-drizzle-native-sample-05-transactions-cls
 npm run test --workspace nest-drizzle-native-sample-06-manual-transaction
 npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod
 npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator
+npm run test --workspace nest-drizzle-native-sample-09-error-mapping
 ```
 
 ## Catalog
@@ -33,7 +34,7 @@ npm run test --workspace nest-drizzle-native-sample-08-validation-class-validato
 | `06-manual-transaction` | `@InjectTransaction()` escape hatch | Runnable | `npm run test --workspace nest-drizzle-native-sample-06-manual-transaction` |
 | `07-validation-drizzle-zod` | Drizzle schema to Zod validation | Runnable | `npm run test --workspace nest-drizzle-native-sample-07-validation-drizzle-zod` |
 | `08-validation-class-validator` | DTO validation with `ValidationPipe` | Runnable | `npm run test --workspace nest-drizzle-native-sample-08-validation-class-validator` |
-| `09-error-mapping` | Opt-in database error mapping | Planned in issue #15 | TBD |
+| `09-error-mapping` | Opt-in database error mapping | Runnable | `npm run test --workspace nest-drizzle-native-sample-09-error-mapping` |
 | `10-testing-utilities` | Test module and mock helpers | Planned in issue #14 | TBD |
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Planned in issue #13 | TBD |
 | `12-swagger-openapi` | Swagger/OpenAPI integration | Planned in issue #12 | TBD |
