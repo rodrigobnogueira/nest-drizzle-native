@@ -103,8 +103,18 @@ Inspect:
 - [`10-testing-utilities/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
 - [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
 
+## Safe Raw SQL
+
+Drizzle's `sql` template remains available for advanced reporting and
+vendor-specific query shapes, with values parameterized through Drizzle instead
+of string concatenation.
+
+Inspect:
+
+- [`11-raw-sql-escape-hatch/src/reports/reports.repository.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/src/reports/reports.repository.ts)
+- [`11-raw-sql-escape-hatch/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch/scripts/smoke.ts)
+
 ## Still Planned
 
-The sample plan also includes safe raw SQL patterns, Swagger/OpenAPI
-integration, and the full showcase. Those pages should stay honest until the
-runnable samples land.
+The sample plan also includes Swagger/OpenAPI integration and the full showcase.
+Those pages should stay honest until the runnable samples land.
