@@ -16,6 +16,15 @@ describe('Drizzle error mapping helpers', () => {
   it('detects unique constraint errors across common drivers', () => {
     assert.equal(isUniqueConstraintError({ code: '23505' }), true);
     assert.equal(isUniqueConstraintError({ errno: 'ER_DUP_ENTRY' }), true);
+    assert.equal(
+      isUniqueConstraintError({
+        cause: {
+          code: 'SQLITE_CONSTRAINT',
+          extendedCode: 'SQLITE_CONSTRAINT_UNIQUE',
+        },
+      }),
+      true,
+    );
     assert.equal(isUniqueConstraintError({ code: 'OTHER' }), false);
   });
 
