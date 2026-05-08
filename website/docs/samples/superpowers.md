@@ -106,6 +106,17 @@ Inspect:
 - [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
 - [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
 
+## Zod Validation With OpenAPI Docs
+
+`drizzle-zod` can validate incoming bodies while explicit Swagger DTOs document
+the public contract. The bridge stays app-owned: Zod rejects bad input, DTOs
+describe the route, and smoke tests assert the two stay aligned.
+
+Inspect:
+
+- [`13-zod-openapi-bridge/src/tickets/tickets.controller.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/src/tickets/tickets.controller.ts)
+- [`13-zod-openapi-bridge/scripts/smoke.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge/scripts/smoke.ts)
+
 ## Opt-In Error Mapping
 
 `mapDrizzleError()` lets applications translate known database constraint
