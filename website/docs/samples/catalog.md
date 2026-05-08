@@ -24,9 +24,3 @@ npm run sample:focused
 | [`10-testing-utilities`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/10-testing-utilities) | Test module and mock helpers | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
 | [`11-raw-sql-escape-hatch`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch) | Safe raw SQL patterns | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 | [`12-swagger-openapi`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi) | Swagger/OpenAPI integration | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
-
-## Planned
-
-The current sample plan is implemented through the showcase and focused sample
-set. Future sample issues should cover driver-specific setups or new public
-features as they land.
