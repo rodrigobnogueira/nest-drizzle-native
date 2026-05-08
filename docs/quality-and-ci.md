@@ -51,6 +51,13 @@ totals, per-file aggregates, and the most complex functions.
 The PR comment treats complexity as a review signal. The hard gate remains the
 ESLint threshold.
 
+## Driver Integration
+
+Package tests exercise real Drizzle clients for libSQL, better-sqlite3,
+PostgreSQL, and MySQL. GitHub Actions provides PostgreSQL and MySQL service
+containers for the coverage job. Local runs skip those networked drivers unless
+`NEST_DRIZZLE_NATIVE_POSTGRES_URL` and `NEST_DRIZZLE_NATIVE_MYSQL_URL` are set.
+
 ## Release And Security
 
 Release validation checks README/docs links and the package tarball:

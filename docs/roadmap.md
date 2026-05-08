@@ -8,7 +8,6 @@ checks, and security checks.
 Next priorities:
 
 - Additional focused samples for driver-specific setup.
-- Driver integration suites for PostgreSQL, MySQL, SQLite, and libSQL.
 - Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
 
 The package should stay conservative while these pieces are added. New APIs

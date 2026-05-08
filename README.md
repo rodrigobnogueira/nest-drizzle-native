@@ -289,7 +289,6 @@ npm run ci
 
 - Additional focused samples for driver differences.
 - Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
-- Driver integration suites for PostgreSQL, MySQL, SQLite, and libSQL.
 
 ## Philosophy
 

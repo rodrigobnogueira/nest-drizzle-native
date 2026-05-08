@@ -65,8 +65,8 @@ const FeatureList: FeatureItem[] = [
     icon: 'Test',
     description: (
       <>
-        The package suite includes real libSQL repository queries and real
-        CLS-backed transaction commit and rollback coverage.
+        The package suite exercises real libSQL, better-sqlite3, PostgreSQL,
+        and MySQL clients, plus CLS-backed commit and rollback coverage.
       </>
     ),
   },
