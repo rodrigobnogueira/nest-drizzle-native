@@ -8,7 +8,8 @@ checks, and security checks.
 Next priorities:
 
 - Additional focused samples for driver-specific setup.
-- Drizzle-Zod and Swagger helpers for single-source-of-truth DTO/OpenAPI flows.
+- Evaluate whether the Drizzle-Zod/OpenAPI bridge sample justifies a tiny public
+  helper, or whether the app-owned pattern is clearer as documentation.
 
 The package should stay conservative while these pieces are added. New APIs
 should prove they are useful in samples or integration tests before becoming
