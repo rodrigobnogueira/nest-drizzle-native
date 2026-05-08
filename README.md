@@ -287,7 +287,7 @@ npm run ci
 
 ## Roadmap
 
-- Additional focused samples for MySQL setup patterns.
+- Additional focused samples for new drivers or public features as they land.
 - Evaluate whether the optional Drizzle-Zod/OpenAPI bridge sample justifies a
   tiny helper, or whether the explicit Nest DTO pattern is clearer as
   documentation.
