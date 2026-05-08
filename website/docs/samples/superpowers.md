@@ -56,6 +56,17 @@ Inspect:
 - [`04-named-connections/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/04-named-connections/src/app.module.ts)
 - [`04-named-connections/src/products/products.service.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/04-named-connections/src/products/products.service.ts)
 
+## Driver-Owned Lifecycle
+
+Applications own driver construction. `DrizzleModule.forRoot()` receives the
+ready Drizzle client and an explicit shutdown callback for the underlying driver
+handle.
+
+Inspect:
+
+- [`14-better-sqlite3-driver/src/database.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver/src/database.ts)
+- [`14-better-sqlite3-driver/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver/src/app.module.ts)
+
 ## Transaction Decorators
 
 `@Transactional()` bridges to the CLS transaction stack so workflow services can

@@ -1,6 +1,7 @@
 # Sample Catalog
 
-Runnable samples use local libSQL files and can run without external services.
+Runnable samples use local database files where possible and can run without
+external services.
 
 ```bash
 npm run ci:sample
@@ -25,3 +26,4 @@ npm run sample:focused
 | [`11-raw-sql-escape-hatch`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/11-raw-sql-escape-hatch) | Safe raw SQL patterns | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 | [`12-swagger-openapi`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/12-swagger-openapi) | Swagger/OpenAPI integration | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
 | [`13-zod-openapi-bridge`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/13-zod-openapi-bridge) | Optional Drizzle-Zod validation with Swagger contracts | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
+| [`14-better-sqlite3-driver`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver) | better-sqlite3 driver setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
