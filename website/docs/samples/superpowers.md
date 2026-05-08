@@ -68,6 +68,8 @@ Inspect:
 - [`14-better-sqlite3-driver/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver/src/app.module.ts)
 - [`15-postgres-driver/src/database.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/15-postgres-driver/src/database.ts)
 - [`15-postgres-driver/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/15-postgres-driver/src/app.module.ts)
+- [`16-mysql-driver/src/database.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/database.ts)
+- [`16-mysql-driver/src/app.module.ts`](https://github.com/rodrigobnogueira/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/app.module.ts)
 
 ## Transaction Decorators
 
