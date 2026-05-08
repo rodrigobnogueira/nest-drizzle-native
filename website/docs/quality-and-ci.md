@@ -68,6 +68,9 @@ packed tarball:
 npm run release:check
 ```
 
+For the publish checklist, version sync rules, and post-publish verification,
+see [Release Guide](release.md).
+
 Supply-chain auditing checks high-severity production risk:
 
 ```bash

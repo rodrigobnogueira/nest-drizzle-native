@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
         'support-policy',
         'api-reference',
         'quality-and-ci',
+        'release',
         'contributing',
         'roadmap',
       ],
