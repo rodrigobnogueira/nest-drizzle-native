@@ -25,6 +25,7 @@ npm run test --workspace nest-drizzle-native-sample-10-testing-utilities
 npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch
 npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi
 npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
+npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
 ```
 
 ## Catalog
@@ -45,6 +46,7 @@ npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Runnable | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 | `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
 | `13-zod-openapi-bridge` | Optional Drizzle-Zod validation with Swagger contracts | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
+| `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
 
 ## Sample Rules
 
@@ -74,10 +76,10 @@ or PR and reference it from the sample PR.
 
 ## Local Database Convention
 
-Focused samples use local libSQL database files so they run in CI without
-external services. That setup is intentionally sample-local: it demonstrates
-driver construction and cleanup without adding test-only helpers to the
-published package API.
+Focused samples use local database files where possible so they run in CI
+without external services. That setup is intentionally sample-local: it
+demonstrates driver construction and cleanup without adding test-only helpers to
+the published package API.
 
 If more samples repeat the same setup, prefer shared guidance or helper code
 inside `sample/` over changes in `packages/drizzle`.

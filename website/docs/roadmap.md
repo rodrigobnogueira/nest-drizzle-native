@@ -7,7 +7,9 @@ checks, and security checks.
 
 Next priorities:
 
-- Additional focused samples for driver-specific setup.
+- Additional focused samples for driver-specific setup, especially PostgreSQL
+  and MySQL setups that can be documented without making local sample execution
+  fragile.
 - Keep class-validator DTOs and `ValidationPipe` as the canonical Nest-native
   HTTP validation path.
 - Evaluate whether the optional Drizzle-Zod/OpenAPI bridge sample justifies a
