@@ -10,6 +10,7 @@ Start here:
 - [Samples](samples/index.md)
 - [API Reference](api-reference.md)
 - [Quality And CI](quality-and-ci.md)
+- [Release Guide](release.md)
 - [Contributing](contributing.md)
 - [Support Policy](support-policy.md)
 - [Roadmap](roadmap.md)
