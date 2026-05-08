@@ -57,9 +57,10 @@ database:
 - transaction commit and rollback
 - driver-specific behavior
 
-The package test suite includes a real libSQL integration test that creates a
-table, writes rows through a repository, and verifies CLS-backed transaction
-commit and rollback.
+The package test suite includes real driver integration coverage for libSQL,
+better-sqlite3, PostgreSQL, and MySQL. The CI suite runs PostgreSQL and MySQL
+through service containers, while local runs skip those two unless connection
+URLs are provided.
 
 ## Local Commands
 
