@@ -270,7 +270,7 @@ transactions, migrations, or driver-specific assumptions. See
 The repository starts with the same review posture as `nest-trpc-native` while
 using `node:test` and `c8` for this package:
 
-- package build and typecheck on Node.js 20 and 22
+- package build, typecheck, and coverage on Node.js 20 and 22
 - coverage with `c8`, enforced at 100% for statements, branches, functions, and lines
 - sticky PR comments for coverage, test performance, and cognitive complexity
 - cognitive complexity enforcement with SonarJS threshold `15`
