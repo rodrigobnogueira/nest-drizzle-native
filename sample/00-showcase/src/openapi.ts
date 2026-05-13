@@ -5,7 +5,7 @@ export function createOpenApiDocument(app: INestApplication): OpenAPIObject {
   const config = new DocumentBuilder()
     .setTitle('nest-drizzle-native showcase')
     .setDescription('Full integration sample for NestJS, Drizzle, and Swagger')
-    .setVersion('0.1.0')
+    .setVersion('0.2.0')
     .addApiKey(
       {
         type: 'apiKey',
