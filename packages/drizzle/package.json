@@ -1,6 +1,6 @@
 {
   "name": "nest-drizzle-native",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Nest-native Drizzle ORM integration with DI, repositories, and transaction decorators",
   "keywords": [
     "nestjs",

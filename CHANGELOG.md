@@ -8,6 +8,10 @@ package release is useful for users.
 
 ## Unreleased
 
+No user-facing changes yet.
+
+## 0.2.0 - 2026-05-12
+
 ### Added
 
 - Focused samples for the Drizzle-Zod/OpenAPI bridge, better-sqlite3,
