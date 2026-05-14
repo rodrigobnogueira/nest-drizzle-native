@@ -19,3 +19,5 @@ changed-files.txt
 .env.*
 !.env.example
 GUIDELINES_NEST_DRIZZLE.md
+todo-*.txt
+announce.txt
