@@ -27,6 +27,8 @@ const sidebars: SidebarsConfig = {
       label: 'Support & Reference',
       items: [
         'support-policy',
+        'adoption-guide',
+        'production-patterns',
         'api-reference',
         'quality-and-ci',
         'release',

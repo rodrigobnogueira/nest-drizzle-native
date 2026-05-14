@@ -27,6 +27,8 @@ policy:
 - [Testing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/testing)
 - [Samples](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/)
 - [Zod OpenAPI Bridge](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
+- [Adoption Guide](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/adoption-guide)
+- [Production Patterns](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/production-patterns)
 - [API Reference](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/api-reference)
 - [Quality and CI](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quality-and-ci)
 - [Contributing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/contributing)
