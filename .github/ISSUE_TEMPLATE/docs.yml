@@ -1,0 +1,36 @@
+name: Documentation issue
+description: Report missing, unclear, or outdated documentation.
+title: "docs: "
+labels:
+  - docs
+body:
+  - type: textarea
+    id: page
+    attributes:
+      label: Page or section
+      description: Link the page or name the section that needs work.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear or missing?
+      description: Explain what blocked you or what detail should be corrected.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: Suggested change
+      description: Optional wording, code sample, or structure that would help.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who is this for?
+      options:
+        - first-time user
+        - production adopter
+        - sample maintainer
+        - package contributor
+        - release maintainer
+        - other
