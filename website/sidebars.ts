@@ -16,6 +16,9 @@ const sidebars: SidebarsConfig = {
         'samples/architecture',
         'samples/superpowers',
         'samples/zod-openapi-bridge',
+        'samples/zod-migration-guide',
+        'samples/zod-large-codebase-checklist',
+        'samples/zod-diff-examples',
         'samples/how-to-review',
       ],
     },
@@ -24,6 +27,8 @@ const sidebars: SidebarsConfig = {
       label: 'Support & Reference',
       items: [
         'support-policy',
+        'adoption-guide',
+        'production-patterns',
         'api-reference',
         'quality-and-ci',
         'release',
