@@ -36,4 +36,5 @@ Use this package when your Nest application needs a structured Drizzle setup:
 - You use `@nestjs-cls/transactional` and want project-local transaction decorators.
 - You want testing helpers that preserve the same DI tokens as production setup.
 
-For the first runnable setup, continue with [Quick Start](quick-start.md).
+For the design tradeoffs, see [Why Native](why-native.md). For the first
+runnable setup, continue with [Quick Start](quick-start.md).
