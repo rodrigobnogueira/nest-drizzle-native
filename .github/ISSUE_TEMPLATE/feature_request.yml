@@ -1,0 +1,55 @@
+name: Feature request
+description: Propose a package, docs, or sample improvement.
+title: "feat: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This project prefers sample-first API design. If the request adds public package API, please explain the repeated application pain and why existing Drizzle or Nest primitives are not enough.
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What are you trying to build, and where does the current package fall short?
+    validations:
+      required: true
+  - type: textarea
+    id: current-approach
+    attributes:
+      label: Current approach
+      description: Show how you solve this today with Drizzle, Nest, or application code.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest package, docs, or sample change that would help.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Change type
+      options:
+        - documentation
+        - sample
+        - testing utility
+        - package API
+        - release or CI
+        - other
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Project boundaries
+      options:
+        - label: This keeps standard Drizzle schemas and query builders visible.
+          required: true
+        - label: This does not make optional validation or driver ecosystems mandatory.
+          required: true
+        - label: This fits normal Nest module, provider, lifecycle, and testing patterns.
+          required: true

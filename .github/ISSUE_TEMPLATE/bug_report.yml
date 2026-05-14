@@ -1,0 +1,94 @@
+name: Bug report
+description: Report a reproducible problem in nest-drizzle-native.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please include enough detail for maintainers to reproduce it without guessing about your Nest, Drizzle, driver, or transaction setup.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the behavior you saw and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Link to a minimal repo or paste the smallest code snippet that demonstrates the issue.
+      placeholder: |
+        DrizzleModule.forRoot({
+          schema,
+          connection: db,
+        });
+    validations:
+      required: true
+  - type: input
+    id: package-version
+    attributes:
+      label: nest-drizzle-native version
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: nest-version
+    attributes:
+      label: NestJS version
+      placeholder: "11.x"
+    validations:
+      required: true
+  - type: input
+    id: drizzle-version
+    attributes:
+      label: Drizzle ORM version
+      placeholder: "0.45.x"
+    validations:
+      required: true
+  - type: dropdown
+    id: driver
+    attributes:
+      label: Database driver
+      options:
+        - pg
+        - mysql2
+        - better-sqlite3
+        - "@libsql/client"
+        - other
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - DrizzleModule registration
+        - InjectDrizzle
+        - repositories
+        - named connections
+        - transactions
+        - testing utilities
+        - error mapping
+        - samples or docs
+        - release or CI
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste stack traces or command output. Redact secrets, tokens, hostnames, and connection strings.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I removed or redacted secrets and connection strings.
+          required: true
+        - label: I checked the docs and samples for the same pattern.
+          required: true
