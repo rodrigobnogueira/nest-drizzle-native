@@ -21,6 +21,7 @@ The documentation is the canonical source of truth for usage guides and support
 policy:
 
 - [Introduction](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/introduction)
+- [Why Native](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/why-native)
 - [Quick Start](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quick-start)
 - [Repositories](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/repositories)
 - [Transactions](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/transactions)
