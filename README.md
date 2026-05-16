@@ -7,7 +7,7 @@
   <a href="https://www.npmjs.com/package/nest-drizzle-native"><img src="https://img.shields.io/npm/dm/nest-drizzle-native.svg" alt="NPM Downloads" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Package License" /></a>
   <img src="https://img.shields.io/badge/coverage-100%25-brightgreen.svg" alt="Test Coverage" />
-  <a href="https://rodrigobnogueira.github.io/nest-drizzle-native/"><img src="https://img.shields.io/badge/docs-nest--drizzle--native-0f766e.svg" alt="Documentation" /></a>
+  <a href="https://nest-native.github.io/nest-drizzle-native/"><img src="https://img.shields.io/badge/docs-nest--drizzle--native-0f766e.svg" alt="Documentation" /></a>
 </p>
 
 ## What This Is
@@ -20,20 +20,20 @@ SQL-first query builder.
 The documentation is the canonical source of truth for usage guides and support
 policy:
 
-- [Introduction](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/introduction)
-- [Why Native](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/why-native)
-- [Quick Start](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quick-start)
-- [Repositories](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/repositories)
-- [Transactions](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/transactions)
-- [Testing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/testing)
-- [Samples](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/)
-- [Zod OpenAPI Bridge](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
-- [Adoption Guide](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/adoption-guide)
-- [Production Patterns](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/production-patterns)
-- [API Reference](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/api-reference)
-- [Quality and CI](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/quality-and-ci)
-- [Contributing](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/contributing)
-- [Support Policy](https://rodrigobnogueira.github.io/nest-drizzle-native/docs/support-policy)
+- [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction)
+- [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native)
+- [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start)
+- [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories)
+- [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
+- [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
+- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
+- [Zod OpenAPI Bridge](https://nest-native.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
+- [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
+- [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
+- [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
+- [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci)
+- [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing)
+- [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy)
 
 ## Why Use It
 

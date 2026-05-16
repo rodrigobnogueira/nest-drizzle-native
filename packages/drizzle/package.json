@@ -15,10 +15,10 @@
   ],
   "author": "Rodrigo Nogueira",
   "license": "MIT",
-  "homepage": "https://github.com/rodrigobnogueira/nest-drizzle-native#readme",
+  "homepage": "https://github.com/nest-native/nest-drizzle-native#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodrigobnogueira/nest-drizzle-native.git",
+    "url": "git+https://github.com/nest-native/nest-drizzle-native.git",
     "directory": "packages/drizzle"
   },
   "main": "./dist/index.js",
