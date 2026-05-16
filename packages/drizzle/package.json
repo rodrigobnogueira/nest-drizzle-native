@@ -21,6 +21,9 @@
     "url": "git+https://github.com/nest-native/nest-drizzle-native.git",
     "directory": "packages/drizzle"
   },
+  "bugs": {
+    "url": "https://github.com/nest-native/nest-drizzle-native/issues"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
