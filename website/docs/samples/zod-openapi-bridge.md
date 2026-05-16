@@ -1,9 +1,9 @@
 ---
-title: Zod OpenAPI Bridge
-description: App-owned Drizzle-Zod validation with explicit Swagger DTO contracts.
+title: Zod + Swagger/OpenAPI Bridge
+description: App-owned Drizzle-Zod validation with explicit Swagger/OpenAPI DTO contracts.
 ---
 
-# Zod OpenAPI Bridge
+# Zod + Swagger/OpenAPI Bridge
 
 The default HTTP contract story for this library is still Nest DTO classes,
 `ValidationPipe`, and `@nestjs/swagger`. Use the Drizzle-Zod bridge only when an

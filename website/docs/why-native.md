@@ -137,7 +137,8 @@ The canonical Nest HTTP path is still DTO classes, `ValidationPipe`, and
 
 `drizzle-zod` is supported as an optional application-owned pattern when a team
 chooses schema-derived validation. The package does not expose a root Zod API or
-make Zod a default dependency. See [Zod OpenAPI Bridge](samples/zod-openapi-bridge.md)
+make Zod a default dependency. See
+[Zod + Swagger/OpenAPI Bridge](samples/zod-openapi-bridge.md)
 for the supported bridge pattern.
 
 ## Security Boundary

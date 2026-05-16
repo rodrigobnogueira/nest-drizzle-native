@@ -10,6 +10,15 @@ package release is useful for users.
 
 No user-facing changes yet.
 
+## 0.2.1 - 2026-05-16
+
+### Changed
+
+- Updated package metadata and documentation links for the
+  `nest-native/nest-drizzle-native` repository move.
+- Improved discoverability for the optional Zod + Swagger/OpenAPI bridge sample
+  without adding a package-level Zod API.
+
 ## 0.2.0 - 2026-05-12
 
 ### Added

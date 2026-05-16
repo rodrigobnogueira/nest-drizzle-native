@@ -51,7 +51,7 @@ targeted local debugging.
 | `10-testing-utilities` | Test module and mock helpers | Runnable | `npm run test --workspace nest-drizzle-native-sample-10-testing-utilities` |
 | `11-raw-sql-escape-hatch` | Safe raw SQL patterns | Runnable | `npm run test --workspace nest-drizzle-native-sample-11-raw-sql-escape-hatch` |
 | `12-swagger-openapi` | Swagger/OpenAPI integration | Runnable | `npm run test --workspace nest-drizzle-native-sample-12-swagger-openapi` |
-| `13-zod-openapi-bridge` | Optional Drizzle-Zod validation with Swagger contracts | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
+| `13-zod-openapi-bridge` | Optional Zod + Swagger/OpenAPI bridge | Runnable | `npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge` |
 | `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
 | `15-postgres-driver` | PostgreSQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_POSTGRES_URL` | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
 | `16-mysql-driver` | MySQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_MYSQL_URL` | `npm run test --workspace nest-drizzle-native-sample-16-mysql-driver` |
