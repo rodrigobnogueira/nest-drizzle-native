@@ -122,7 +122,7 @@ Inspect:
 - [`12-swagger-openapi/src/projects/projects.controller.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/12-swagger-openapi/src/projects/projects.controller.ts)
 - [`12-swagger-openapi/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/12-swagger-openapi/scripts/smoke.ts)
 
-## Optional Zod Validation With OpenAPI Docs
+## Optional Zod Validation With Swagger/OpenAPI Docs
 
 `drizzle-zod` can validate incoming bodies while explicit Swagger DTOs document
 the public contract. The bridge stays app-owned: Zod rejects bad input, DTOs

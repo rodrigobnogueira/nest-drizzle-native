@@ -1,4 +1,4 @@
-# Sample 13: Optional Drizzle-Zod + OpenAPI Bridge
+# Sample 13: Optional Zod + Swagger/OpenAPI Bridge
 
 This sample shows an optional path for teams that already want `drizzle-zod` in
 their application code. It is not the default validation story for the library.

@@ -7,7 +7,8 @@ description: Migrate raw drizzle-zod validation toward the app-owned Zod OpenAPI
 
 This guide is for applications that already use `drizzle-zod` and want a
 clearer Nest HTTP boundary without adopting a new package API. The target shape
-is the app-owned bridge from the [Zod OpenAPI Bridge](./zod-openapi-bridge.md)
+is the app-owned bridge from the
+[Zod + Swagger/OpenAPI Bridge](./zod-openapi-bridge.md)
 page:
 
 - Drizzle tables remain the database source of truth.

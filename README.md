@@ -27,7 +27,7 @@ policy:
 - [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
 - [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
 - [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
-- [Zod OpenAPI Bridge](https://nest-native.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
+- [Zod + Swagger/OpenAPI Bridge](https://nest-native.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
 - [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
 - [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
 - [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
