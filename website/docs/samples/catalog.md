@@ -29,3 +29,4 @@ npm run sample:focused
 | [`14-better-sqlite3-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/14-better-sqlite3-driver) | better-sqlite3 driver setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
 | [`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver) | PostgreSQL pool setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
 | [`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver) | MySQL pool setup and shutdown | `npm run test --workspace nest-drizzle-native-sample-16-mysql-driver` |
+| [`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations) | drizzle-kit migrations and migrated startup | `npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations` |

@@ -28,6 +28,7 @@ npm run test --workspace nest-drizzle-native-sample-13-zod-openapi-bridge
 npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver
 npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
 npm run test --workspace nest-drizzle-native-sample-16-mysql-driver
+npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
 ```
 
 `npm run sample:focused` discovers focused samples from `sample/*/package.json`
@@ -55,6 +56,7 @@ targeted local debugging.
 | `14-better-sqlite3-driver` | better-sqlite3 driver setup and shutdown | Runnable | `npm run test --workspace nest-drizzle-native-sample-14-better-sqlite3-driver` |
 | `15-postgres-driver` | PostgreSQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_POSTGRES_URL` | `npm run test --workspace nest-drizzle-native-sample-15-postgres-driver` |
 | `16-mysql-driver` | MySQL pool setup and shutdown | Runnable with `NEST_DRIZZLE_NATIVE_MYSQL_URL` | `npm run test --workspace nest-drizzle-native-sample-16-mysql-driver` |
+| `17-drizzle-kit-migrations` | drizzle-kit migrations and migrated startup | Runnable | `npm run test --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations` |
 
 ## Sample Rules
 

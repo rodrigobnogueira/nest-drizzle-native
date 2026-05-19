@@ -176,7 +176,11 @@ Module({
 
   assert.equal(moduleRef.get(getDrizzleClientToken()), fakeClient);
   assert.deepEqual(moduleRef.get(UsersService).findMany(), ['Ada', 'Grace']);
-  assert.deepEqual(packageJson.dependencies, {});
+  assert.equal(
+    Object.keys(packageJson.dependencies ?? {}).length,
+    0,
+    'The packed package must not declare runtime dependencies.',
+  );
 
   await moduleRef.close();
 })().catch(error => {
