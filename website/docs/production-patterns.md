@@ -9,6 +9,19 @@ This page collects the production concerns that usually appear after the quick
 start works: multiple databases, request scope, transactions, error mapping,
 performance, and security.
 
+## Checklist
+
+Before treating an app as production-ready:
+
+- create the driver or pool in application code
+- pass a ready Drizzle client to `DrizzleModule`
+- provide a shutdown hook for owned driver resources
+- generate and apply migrations with standard Drizzle tooling
+- place `@Transactional()` on workflow service methods, not every query method
+- keep validation and OpenAPI concerns at the HTTP boundary
+- prefer real database tests for migrations, transactions, and driver behavior
+- review raw SQL for parameterization before merge
+
 ## Connection Ownership
 
 Applications own driver construction. Create pools or clients in application
@@ -52,6 +65,30 @@ constructor(
 Prefer named connections when tenants map to a small, known set of databases.
 For high-cardinality tenant routing, keep the routing service in application
 code so connection caching, eviction, and authorization rules remain explicit.
+
+## Migrations
+
+Keep migration generation and execution app-owned. Use standard Drizzle schema
+files and `drizzle-kit` output, commit the generated SQL and metadata, and run
+migrations as part of your deployment workflow before normal traffic reaches
+the app.
+
+```bash
+npm run db:generate --workspace nest-drizzle-native-sample-17-drizzle-kit-migrations
+```
+
+For local samples or single-process tools, applying migrations during bootstrap
+is acceptable. In production, prefer a dedicated release step or a controlled
+single-runner startup path so multiple replicas do not race on the same
+migration.
+
+The package intentionally does not expose a Nest migration runner. Drizzle owns
+schema and migration files; the application owns when and how database state is
+changed.
+
+See the runnable
+[`17-drizzle-kit-migrations`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations)
+sample for the minimal pattern.
 
 ## Request Scope
 

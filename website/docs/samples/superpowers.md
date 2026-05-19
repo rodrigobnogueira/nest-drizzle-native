@@ -71,6 +71,18 @@ Inspect:
 - [`16-mysql-driver/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/database.ts)
 - [`16-mysql-driver/src/app.module.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver/src/app.module.ts)
 
+## App-Owned Migrations
+
+Drizzle schema and generated SQL migrations stay in application code. The Nest
+module receives a migrated Drizzle client instead of hiding deployment decisions
+inside the package.
+
+Inspect:
+
+- [`17-drizzle-kit-migrations/drizzle.config.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/drizzle.config.ts)
+- [`17-drizzle-kit-migrations/drizzle`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/drizzle)
+- [`17-drizzle-kit-migrations/src/database.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/src/database.ts)
+
 ## Transaction Decorators
 
 `@Transactional()` bridges to the CLS transaction stack so workflow services can
