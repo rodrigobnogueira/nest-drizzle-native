@@ -1,0 +1,88 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+    groups:
+      dev-tooling-minor-patch:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+      nest-drizzle-peer-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "@libsql/client"
+          - "@nestjs-cls/transactional"
+          - "@nestjs-cls/transactional-adapter-drizzle-orm"
+          - "@nestjs/common"
+          - "@nestjs/core"
+          - "@nestjs/platform-express"
+          - "@nestjs/platform-fastify"
+          - "@nestjs/swagger"
+          - "@nestjs/testing"
+          - "better-sqlite3"
+          - "class-transformer"
+          - "class-validator"
+          - "drizzle-orm"
+          - "drizzle-zod"
+          - "mysql2"
+          - "nestjs-cls"
+          - "pg"
+          - "reflect-metadata"
+          - "rxjs"
+          - "zod"
+
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+    groups:
+      docusaurus-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "@docusaurus/*"
+      website-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@docusaurus/*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/Sao_Paulo"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(actions)"
+      include: "scope"
