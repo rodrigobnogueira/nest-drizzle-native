@@ -1,0 +1,31 @@
+{
+  "name": "nest-drizzle-native-sample-19-transaction-isolation-testing",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Sample 19 - transaction isolation testing",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "smoke": "ts-node --transpile-only scripts/smoke.ts",
+    "test": "npm run typecheck && npm run smoke",
+    "start": "npm run smoke"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.3",
+    "@nestjs-cls/transactional": "^3.2.0",
+    "@nestjs-cls/transactional-adapter-drizzle-orm": "^1.2.3",
+    "@nestjs/common": "11.1.21",
+    "@nestjs/core": "11.1.21",
+    "@nestjs/testing": "11.1.21",
+    "drizzle-orm": "^0.45.2",
+    "nest-drizzle-native": "0.2.1",
+    "nestjs-cls": "^6.2.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.0",
+    "ts-node": "10.9.2",
+    "typescript": "6.0.3"
+  }
+}

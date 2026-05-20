@@ -62,6 +62,21 @@ better-sqlite3, PostgreSQL, and MySQL. The CI suite runs PostgreSQL and MySQL
 through service containers, while local runs skip those two unless connection
 URLs are provided.
 
+## Choosing Test Depth
+
+| Test goal | Recommended setup | Why |
+| --- | --- | --- |
+| Provider wiring or service orchestration | `DrizzleTestModule` with `createDrizzleMockClient()` or repository mocks | Fast and focused on Nest collaboration, not SQL behavior |
+| Query shape, ordering, constraints, or migrations | Real local Drizzle client with a local database file | Proves the schema and SQL path without external services |
+| Driver-specific behavior | Real service-backed driver such as PostgreSQL or MySQL | Catches pool, dialect, and driver lifecycle behavior |
+| Commit, rollback, and transaction context cleanup | Real local database with recreate-per-test or rollback-per-test isolation | Mocks cannot prove transaction semantics |
+
+For transaction behavior, prefer a fresh local database per scenario until the
+application has enough test volume to justify a shared rollback fixture. The
+[`19-transaction-isolation-testing`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing)
+sample demonstrates the recreate-per-test pattern with real `@Transactional()`
+calls.
+
 ## Local Commands
 
 ```bash
