@@ -1,0 +1,21 @@
+import { createClient, type Client } from '@libsql/client';
+import { drizzle, type LibSQLDatabase } from 'drizzle-orm/libsql';
+import { randomUUID } from 'node:crypto';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { schema } from './schema';
+
+export type AppDatabase = LibSQLDatabase<typeof schema> & {
+  $client: Client;
+};
+
+export function createDatabase(label: string): AppDatabase {
+  const client = createClient({
+    url: `file:${join(
+      tmpdir(),
+      `nest-drizzle-native-sample-19-${process.pid}-${label}-${randomUUID()}.db`,
+    )}`,
+  });
+
+  return drizzle(client, { schema });
+}

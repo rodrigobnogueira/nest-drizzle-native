@@ -179,6 +179,17 @@ Inspect:
 - [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
 - [`10-testing-utilities/src/tasks/tasks.repository.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/src/tasks/tasks.repository.ts)
 
+## Transaction Isolation Tests
+
+Transaction behavior needs a real database round trip. Focused tests can stay
+fast by creating a local database per scenario while still proving commit,
+rollback, and CLS context cleanup.
+
+Inspect:
+
+- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
+- [`19-transaction-isolation-testing/src/inventory/inventory.service.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/src/inventory/inventory.service.ts)
+
 ## Safe Raw SQL
 
 Drizzle's `sql` template remains available for advanced reporting and
