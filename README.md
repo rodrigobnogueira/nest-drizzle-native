@@ -17,24 +17,17 @@ want Drizzle ORM with Nest-style modules, dependency injection, repository
 classes, lifecycle cleanup, and transaction decorators without hiding Drizzle's
 SQL-first query builder.
 
-The documentation is the canonical source of truth for usage guides and support
-policy:
+It solves the Nest/Drizzle shape mismatch without turning Drizzle into Active
+Record: your app still owns schemas, drivers, migrations, validation, and SQL;
+the package gives those pieces a clean Nest home.
 
-- [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction)
-- [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native)
+First paths:
+
 - [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start)
-- [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories)
+- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
 - [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
 - [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
-- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
-- [Zod + Swagger/OpenAPI Bridge](https://nest-native.github.io/nest-drizzle-native/docs/samples/zod-openapi-bridge)
-- [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
-- [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
 - [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment)
-- [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
-- [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci)
-- [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing)
-- [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy)
 
 ## Why Use It
 
@@ -103,6 +96,10 @@ transaction stack:
 ```bash
 npm i @nestjs-cls/transactional
 ```
+
+The published package has no runtime dependencies. Nest, Drizzle, drivers,
+transactions, Swagger, class-validator, and Drizzle-Zod stay app-owned so teams
+only install the ecosystems they actually use.
 
 ## Quick Start
 
@@ -245,6 +242,19 @@ export class BillingService {
 
 See [website/docs/transactions.md](website/docs/transactions.md) for the required CLS setup.
 
+## Production Path
+
+- Generate and apply migrations with standard Drizzle tooling before traffic.
+- Use `shutdown` to close driver resources owned by the Nest app.
+- Keep liveness process-only and readiness backed by a cheap Drizzle check.
+- Prefer real Drizzle clients for tests that prove SQL, migrations,
+  transactions, or driver behavior.
+
+Runnable samples cover migrations, health checks, drivers, transactions,
+testing, validation, raw SQL, and Swagger. Start with the
+[sample catalog](https://nest-native.github.io/nest-drizzle-native/docs/samples/catalog)
+when you want a complete working pattern.
+
 ## Testing
 
 ```ts
@@ -295,6 +305,26 @@ npm run ci
 
 See [CHANGELOG.md](CHANGELOG.md) for release history and unreleased user-facing
 changes.
+
+## Documentation
+
+The documentation is the canonical source of truth for usage guides and support
+policy:
+
+- [Introduction](https://nest-native.github.io/nest-drizzle-native/docs/introduction)
+- [Why Native](https://nest-native.github.io/nest-drizzle-native/docs/why-native)
+- [Quick Start](https://nest-native.github.io/nest-drizzle-native/docs/quick-start)
+- [Repositories](https://nest-native.github.io/nest-drizzle-native/docs/repositories)
+- [Transactions](https://nest-native.github.io/nest-drizzle-native/docs/transactions)
+- [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing)
+- [Samples](https://nest-native.github.io/nest-drizzle-native/docs/samples/)
+- [Adoption Guide](https://nest-native.github.io/nest-drizzle-native/docs/adoption-guide)
+- [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns)
+- [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment)
+- [API Reference](https://nest-native.github.io/nest-drizzle-native/docs/api-reference)
+- [Quality and CI](https://nest-native.github.io/nest-drizzle-native/docs/quality-and-ci)
+- [Contributing](https://nest-native.github.io/nest-drizzle-native/docs/contributing)
+- [Support Policy](https://nest-native.github.io/nest-drizzle-native/docs/support-policy)
 
 ## Roadmap
 
