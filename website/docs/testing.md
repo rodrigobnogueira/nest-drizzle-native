@@ -35,6 +35,16 @@ const moduleRef = await Test.createTestingModule({
 This is useful for fast service tests, but it is intentionally shallow. It does
 not prove SQL syntax, schema mapping, driver behavior, or transaction behavior.
 
+Good mock tests answer questions like:
+
+- did the service call the expected repository method?
+- did it map application input before persistence?
+- did it handle a repository error path?
+
+Avoid using mocks to approve query builders, migrations, constraints, ordering,
+driver shutdown, or transaction boundaries. Those are database behaviors and
+need a real client somewhere in the test suite.
+
 ## Repository Tests
 
 Use repository mocks when a service depends on a repository and the repository
@@ -45,6 +55,20 @@ const usersRepository = createDrizzleRepositoryMock<UsersRepository>({
   findById: async id => ({ id, name: 'Ada' }),
 });
 ```
+
+Repository implementations should usually get at least one real database test.
+The smallest useful pattern is:
+
+1. create a local disposable database file
+2. register it with `DrizzleTestModule.forRoot()`
+3. register repositories with `DrizzleTestModule.forFeature()`
+4. create tables or apply migrations
+5. assert inserts, updates, filters, ordering, and constraints with real rows
+
+The
+[`10-testing-utilities`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities)
+sample shows this split: service orchestration uses repository mocks, while the
+repository query shape uses a real libSQL database.
 
 ## Integration Tests
 
@@ -65,6 +89,75 @@ URLs are provided.
 The focused [samples](samples/catalog.md) use the same philosophy: run real
 Nest modules against local database files when behavior depends on Drizzle,
 drivers, or transactions.
+
+### Local Real Database Tests
+
+Use local file-backed databases for fast integration tests that should run on
+every machine and in every pull request. This is the right default for:
+
+- repository query behavior
+- migrations against SQLite-compatible schemas
+- basic module wiring with real clients
+- transaction commit and rollback behavior that does not depend on a specific
+  networked driver
+
+Prefer unique database files per test or per scenario. That keeps tests
+parallel-friendly and prevents previous runs from leaving hidden state behind.
+
+Inspect:
+
+- [`10-testing-utilities/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/10-testing-utilities/scripts/smoke.ts)
+- [`17-drizzle-kit-migrations/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/17-drizzle-kit-migrations/scripts/smoke.ts)
+- [`19-transaction-isolation-testing/scripts/smoke.ts`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/19-transaction-isolation-testing/scripts/smoke.ts)
+
+### Service-Backed Driver Tests
+
+Use PostgreSQL, MySQL, or another service-backed driver when the behavior
+depends on that dialect or driver:
+
+- pool construction and shutdown
+- SQL dialect differences
+- generated column types and constraint behavior
+- driver-specific errors
+- production-like connection settings
+
+Local runs should skip these tests when their URL is missing. CI should provide
+disposable services and run the real round trip before merge.
+
+```bash
+NEST_DRIZZLE_NATIVE_POSTGRES_URL=postgresql://user:password@127.0.0.1:5432/app \
+  npm run test --workspace nest-drizzle-native-sample-15-postgres-driver
+
+NEST_DRIZZLE_NATIVE_MYSQL_URL=mysql://user:password@127.0.0.1:3306/app \
+  npm run test --workspace nest-drizzle-native-sample-16-mysql-driver
+```
+
+Use local-only credentials or disposable CI credentials for these commands.
+Never commit production database URLs or captured production data.
+
+Inspect:
+
+- [`15-postgres-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/15-postgres-driver)
+- [`16-mysql-driver`](https://github.com/nest-native/nest-drizzle-native/tree/main/sample/16-mysql-driver)
+
+### Transaction Behavior Tests
+
+Transaction tests must assert database state before and after the call. A mock
+can say that a method was called; it cannot prove that a rollback removed a row
+or that transaction context was cleaned up.
+
+Good transaction tests check:
+
+- state before the workflow starts
+- state after a committed workflow
+- state after a failed workflow
+- ledger/audit rows that should commit or roll back with the main write
+- `TransactionHost.isTransactionActive()` or equivalent context checks after
+  the method returns
+
+Use recreate-per-test databases first. Rollback-per-test fixtures can be useful
+later, but only after the application has enough test volume to justify the
+extra setup.
 
 ## Choosing Test Depth
 
