@@ -39,6 +39,24 @@ The PR performance comment shows:
 
 When base data exists, each duration includes a diff against the base branch.
 
+These numbers are lightweight regression signals, not a synthetic benchmark.
+Use them to notice suspicious changes, then inspect the related test, driver, or
+sample before refactoring. A slower run can be caused by service-container
+startup, dependency installation, or runner noise.
+
+CI records two stable timing surfaces:
+
+| Signal | Where it appears | What it means |
+| --- | --- | --- |
+| Package test step duration | PR performance comment and package quality summary | End-to-end package coverage step, including real driver tests |
+| Test execution duration | PR performance comment | Time reported by `node:test` for package tests |
+| Slowest suites/tests | PR performance comment | Review hints for package tests that changed or became unexpectedly slow |
+| Sample validation duration | `Sample validation` job summary | Coarse duration for showcase plus focused samples, including service-backed samples in CI |
+
+Keep precision readable. Reports round milliseconds and use two decimal places
+for second-scale values so small runner fluctuations do not look more exact than
+they are.
+
 ## Cognitive Complexity
 
 Cognitive complexity uses SonarJS through ESLint:
