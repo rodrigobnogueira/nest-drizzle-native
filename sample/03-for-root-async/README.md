@@ -38,8 +38,8 @@ and still let Nest own lifecycle cleanup through the module shutdown hook.
   the config provider owns database URL construction.
 - Architecture: root modules should own driver construction and shutdown;
   feature modules should consume injected clients or repositories.
-- Documentation: async setup docs should link this sample as the focused
-  production-readiness example.
+- Documentation: the sample catalog links this as the focused async
+  configuration and shutdown example.
 - Performance: no package performance concern found. The async factory runs once
   during app bootstrap.
 - Maintainability: local libSQL setup is now repeated across three samples, so
