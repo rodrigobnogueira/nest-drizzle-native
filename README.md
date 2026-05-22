@@ -324,6 +324,7 @@ policy:
   [Testing](https://nest-native.github.io/nest-drizzle-native/docs/testing),
 - Production:
   [Production Patterns](https://nest-native.github.io/nest-drizzle-native/docs/production-patterns),
+  [Multi-Tenant Applications](https://nest-native.github.io/nest-drizzle-native/docs/multi-tenant),
   [Deployment](https://nest-native.github.io/nest-drizzle-native/docs/deployment),
   [Migration Operations](https://nest-native.github.io/nest-drizzle-native/docs/migration-operations)
 - Learn by example:

@@ -27,6 +27,7 @@ const sidebars: SidebarsConfig = {
       label: 'Production',
       items: [
         'production-patterns',
+        'multi-tenant',
         'deployment',
         'migration-operations',
       ],
