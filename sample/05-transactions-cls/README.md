@@ -39,8 +39,8 @@ transaction context without passing database clients through controllers.
   explicit because the CLS adapter owns transaction context.
 - Architecture: services should keep transaction boundaries at workflow methods,
   not inside low-level repositories.
-- Documentation: transaction docs should link this sample as the canonical
-  commit/rollback example.
+- Documentation: transaction docs and the sample catalog link this as the
+  canonical commit/rollback example.
 - Performance: no package performance concern found. The CLS plugin adds
   transaction context only around decorated methods.
 - Maintainability: the adapter setup is verbose but honest. Avoid hiding it in

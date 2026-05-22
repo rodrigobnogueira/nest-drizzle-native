@@ -44,7 +44,7 @@ or keeping database access inside repositories is usually clearer.
 - Architecture: keep this as an escape hatch. The recommended pattern remains a
   workflow service with `@Transactional()` and repositories with focused query
   methods.
-- Documentation: transaction docs should link this sample beside the
+- Documentation: transaction docs and the sample catalog link this beside the
   `@Transactional()` sample.
 - Performance: no package performance concern found. The injected transaction
   proxy is provided by the CLS plugin and only resolves the active transaction
