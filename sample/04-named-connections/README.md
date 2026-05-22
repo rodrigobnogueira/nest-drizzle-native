@@ -41,8 +41,8 @@ database.
   direct and readable for named clients.
 - Architecture: each repository should inject the connection it owns. Keep the
   root module responsible for creating each client.
-- Documentation: named-connection docs should link this sample once sample docs
-  are added.
+- Documentation: production multi-tenant guidance links this sample as the
+  baseline for a small, known set of databases.
 - Performance: no package performance concern found. Each connection is created
   once and closed through its own shutdown hook.
 - Maintainability: keeping schemas split by connection makes the sample easier

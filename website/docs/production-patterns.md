@@ -66,6 +66,8 @@ constructor(
 Prefer named connections when tenants map to a small, known set of databases.
 For high-cardinality tenant routing, keep the routing service in application
 code so connection caching, eviction, and authorization rules remain explicit.
+Use [Multi-Tenant Applications](multi-tenant.md) for the tenant routing
+decision tree, authorization boundaries, cache ownership, and isolation tests.
 
 ## Migrations
 
