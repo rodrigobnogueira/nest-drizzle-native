@@ -21,3 +21,4 @@ changed-files.txt
 GUIDELINES_NEST_DRIZZLE.md
 todo-*.txt
 announce.txt
+.devcontainer/
